@@ -1,0 +1,36 @@
+{
+    "extends": [
+        "next/core-web-vitals",
+        "next/typescript",
+        "@feature-sliced/eslint-config/rules/import-order/experimental",
+        "@feature-sliced/eslint-config/rules/public-api/lite",
+        "@feature-sliced/eslint-config/rules/layers-slices"
+        //        "@feature-sliced/eslint-plugin-messages"
+    ],
+    //    "processor": "@feature-sliced/messages/fs",
+    "parser": "@typescript-eslint/parser",
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
+        }
+    },
+    "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "^_",
+                "argsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_"
+            }
+        ],
+        // feature-sliced/import-order
+        "import/order": "error",
+        // feature-sliced/public-api
+        "import/no-internal-modules": "warn",
+        // feature-sliced/layers-slices
+        "boundaries/element-types": "error"
+    }
+}
